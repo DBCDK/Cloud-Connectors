@@ -20,20 +20,15 @@ pipeline {
             }
         }
         stage("build") {
-			steps {
-                script {
-                    def status = sh returnStatus: true, script: """
-                        mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am verify
-                    """
-                }
-            }
-        }
-        stage("deploy") {
             when {
                 branch "dbc-pipeline"
             }
-            steps {
-                sh "mvn -pl Kafka/KafkaRAR -am jar:jar deploy:deploy"
+			steps {
+                script {
+                    def status = sh returnStatus: true, script: """
+                        mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am deploy
+                    """
+                }
             }
         }
     }
