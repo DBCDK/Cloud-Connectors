@@ -21,20 +21,12 @@ pipeline {
         }
         stage("build") {
 			steps {
-                script {
-                    def status = sh returnStatus: true, script:  """
+                    sh """
                         rm -rf \$WORKSPACE/.repo
                         mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo dependency:resolve dependency:resolve-plugins >/dev/null
                         mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo clean
-                    """
-
-                    status += sh returnStatus: true, script:  """
                         mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am verify
                     """
-
-                    if (status != 0) {
-                        currentBuild.result = Result.FAILURE
-                    }
                 }
             }
         }
