@@ -33,7 +33,7 @@ pipeline {
                 branch "dbc-pipeline"
             }
             steps {
-                sh "mvn -pl Kafka/KafkaRAR -am deploy:deploy"
+                sh "mvn -pl Kafka/KafkaRAR -am jar:jar deploy:deploy"
             }
         }
     }
