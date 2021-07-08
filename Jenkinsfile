@@ -27,7 +27,6 @@ pipeline {
                         mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo clean
                         mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am verify
                     """
-                }
             }
         }
         stage("deploy") {
