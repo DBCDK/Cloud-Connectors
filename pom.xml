@@ -162,14 +162,16 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
                 <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <id>mavenrepo.dbc.dk</id>
+                    <name>mavenrepo</name>
+                    <url>http://mavenrepo.dbc.dk/content/repositories/releases</url>
                 </repository>
+                <snapshotRepository>
+                    <id>mavenrepo.dbc.dk</id>
+                    <name>mavenrepo</name>
+                    <url>http://mavenrepo.dbc.dk/content/repositories/snapshots</url>
+                </snapshotRepository>
             </distributionManagement>
             <build>
                 <plugins>
