@@ -21,12 +21,10 @@ pipeline {
         }
         stage("build") {
 			steps {
-                    sh """
-                        rm -rf \$WORKSPACE/.repo
-                        mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo dependency:resolve dependency:resolve-plugins >/dev/null
-                        mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo clean
-                        mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am verify
-                    """
+                    sh "rm -rf \$WORKSPACE/.repo"
+                    sh "mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo dependency:resolve dependency:resolve-plugins >/dev/null"
+                    sh "mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo clean"
+                    sh "mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am verify"
             }
         }
         stage("deploy") {
