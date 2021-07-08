@@ -4,7 +4,7 @@
 
     <groupId>fish.payara.cloud.connectors.kafka</groupId>
     <artifactId>kafka-rest-example</artifactId>
-    <version>0.6.1-SNAPSHOT</version>
+    <version>0.6.1-dbc-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>kafka-rest-example</name>
