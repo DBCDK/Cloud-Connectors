@@ -32,8 +32,6 @@ pipeline {
                         mvn -B -Dmaven.repo.local=\$WORKSPACE/.repo -pl Kafka/KafkaRAR -am verify
                     """
 
-                    junit testResults: '**/target/*-reports/TEST-*.xml'
-
                     if (status != 0) {
                         currentBuild.result = Result.FAILURE
                     }
